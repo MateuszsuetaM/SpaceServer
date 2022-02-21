@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using UploadFilesServer.Context;
@@ -10,10 +9,9 @@ using UploadFilesServer.Context;
 namespace UploadFilesServer.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220221133833_MZ_USER_add_Phone")]
-    partial class MZ_USER_add_Phone
+    partial class RepositoryContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
