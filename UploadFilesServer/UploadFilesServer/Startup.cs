@@ -62,8 +62,8 @@ namespace UploadFilesServer
             //    Password = dbPassword
             //};
 
-            services.AddDbContext<UserContext>(opt => opt.UseNpgsql(builder.ConnectionString));
-            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<UserContext>();
+            services.AddDbContext<RepositoryContext>(opt => opt.UseNpgsql(builder.ConnectionString));
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<RepositoryContext>();
 
 
             //optionsBuilder.UseNpgsql(@"Server=localhost;Port=5432;Database=dbname;User Id=Id;Password=password");
@@ -86,7 +86,7 @@ namespace UploadFilesServer
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserContext db)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, RepositoryContext db)
         {
             if (env.IsDevelopment())
             {

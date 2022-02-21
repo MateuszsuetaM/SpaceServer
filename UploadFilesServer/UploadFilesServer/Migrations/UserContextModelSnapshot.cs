@@ -8,7 +8,7 @@ using UploadFilesServer.Context;
 
 namespace UploadFilesServer.Migrations
 {
-    [DbContext(typeof(UserContext))]
+    [DbContext(typeof(RepositoryContext))]
     partial class UserContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

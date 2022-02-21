@@ -9,7 +9,7 @@ using UploadFilesServer.Context;
 
 namespace UploadFilesServer.Migrations
 {
-    [DbContext(typeof(UserContext))]
+    [DbContext(typeof(RepositoryContext))]
     [Migration("20220221133627_MZ_USER_add_Email")]
     partial class MZ_USER_add_Email
     {
