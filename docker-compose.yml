@@ -1,0 +1,38 @@
+version: '3.0'
+networks: 
+  api-dev:
+    driver: "bridge"
+services: 
+  db:
+    image: postgres:latest
+    restart: always
+    volumes:
+      - C:/TEST/dropboks_db/1/data:/var/lib/postgresql/data
+      # - C:/TEST/dropboks_db/1/C:/TEST/dropboks_db/1/data:/etc/postgresql
+      # - C:/TEST/dropboks_db/1/log/postgresql:/var/log/postgresql
+    environment: 
+      #- DATABASE_HOST=127.0.0.1
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "root"
+      #- PGDATA=/var/lib/postgresql/data/pgdata
+    ports: 
+      - "6543:5432"
+    networks: 
+      - api-dev
+     # volumes:
+      # - ./docker_postgres_init.sql:/docker_postgres_init.sql
+      # - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+  pgadmin-compose:
+      image: dpage/pgadmin4
+      environment: 
+        PGADMIN_DEFAULT_EMAIL: "test@gmail.com"
+        PGADMIN_DEFAULT_PASSWORD: "test123!"
+      ports: 
+        - "16543:80"
+      depends_on: 
+        - postgres
+      networks: 
+        - api-dev
+# volumes:
+  # db_volume

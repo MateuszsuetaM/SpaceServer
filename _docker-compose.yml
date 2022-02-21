@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+    apiservice:
+        container_name: drop-appa
+        build:
+            context: ./UploadFilesServer
+            dockerfile: dockerfile
+        volumes:
+          - C:\TEST\staticFiles:/app/Resources
+        ports:
+          - "5000:5000"
+    uiservice:
+        container_name: angular-app
+        build:
+            context: ./UploadFilesClient
+            dockerfile: dockerfile.UI
+        ports:
+          - "4200:80"
+        depends_on:
+          - apiservice
