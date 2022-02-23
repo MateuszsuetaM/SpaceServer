@@ -9,7 +9,11 @@ namespace UploadFilesServer.Mappings
         public MappingProfile()
         {
             CreateMap<UserForRegistrationDto, User>()
-                .ForMember(u => u.UserName, opt => opt.MapFrom(x => x.Email));
+                .ForMember(u => u.UserName, opt => opt.MapFrom(x => x.Email))
+                //.ForMember(u => u.Email, opt => opt.MapFrom(x => x.Name));
+                .ForMember(u => u.Address, opt => opt.MapFrom(x => x.Email))
+                .ForMember(u => u.Name, opt => opt.MapFrom(x => x.Email));
+                //.ForMember(u => u.Address, opt => opt.MapFrom(x => x.ad));
         }
     }
 }
