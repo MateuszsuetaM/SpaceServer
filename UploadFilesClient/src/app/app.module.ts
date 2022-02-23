@@ -17,11 +17,10 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     UploadComponent,
     MenuComponent,
     NotFoundComponent,
-    UploadComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,    FormsModule,    HttpClientModule,
-    // BrowserModule,    FormsModule,    HttpClientModule,
     RouterModule.forRoot([
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
       { path: 'home', component: HomeComponent },
@@ -32,7 +31,6 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
       { path: '**', redirectTo: '/404', pathMatch: 'full'}
     ])
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

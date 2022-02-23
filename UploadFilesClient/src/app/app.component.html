@@ -18,7 +18,13 @@
     </form>
   </section>
 
-  <app-upload></app-upload>
+  <nav>
+    <a routerLink="/authentication">Rejestruj</a>
+  </nav>
+
+
+  <router-outlet></router-outlet>
+  <!-- <app-upload></app-upload> -->
   <div class="row">
     <div class="offset-md-5 col-md-2">
       <button type="button" class="btn btn-primary" (click)="onCreate()">Create </button>
