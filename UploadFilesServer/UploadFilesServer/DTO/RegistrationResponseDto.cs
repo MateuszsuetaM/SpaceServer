@@ -1,0 +1,11 @@
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace UploadFilesServer.DTO
+{
+    public class RegistrationResponseDto
+    {
+        public bool IsSuccessfulRegistration { get; set; }
+        public IEnumerable<string> Errors { get; set; }
+    }
+}

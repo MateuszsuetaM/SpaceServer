@@ -12,9 +12,9 @@ namespace UploadFilesServer.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly UserContext _context;
+        private readonly RepositoryContext _context;
 
-        public UsersController(UserContext context)
+        public UsersController(RepositoryContext context)
         {
             _context = context;
         }
