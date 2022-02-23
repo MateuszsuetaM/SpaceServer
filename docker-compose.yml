@@ -1,38 +1,18 @@
-version: '3.0'
-networks: 
-  api-dev:
-    driver: "bridge"
-services: 
-  db:
-    image: postgres:latest
-    restart: always
-    volumes:
-      - C:/TEST/dropboks_db/2/data:/var/lib/postgresql/data
-      # - C:/TEST/dropboks_db/1/C:/TEST/dropboks_db/1/data:/etc/postgresql
-      # - C:/TEST/dropboks_db/1/log/postgresql:/var/log/postgresql
-    environment: 
-      #- DATABASE_HOST=127.0.0.1
-      POSTGRES_USER: "root"
-      POSTGRES_PASSWORD: "root"
-      POSTGRES_DB: "dropboks_db"
-      #- PGDATA=/var/lib/postgresql/data/pgdata
-    ports: 
-      - "6543:5432"
-    networks: 
-      - api-dev
-     # volumes:
-      # - ./docker_postgres_init.sql:/docker_postgres_init.sql
-      # - ./docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
-  pgadmin-compose:
-      image: dpage/pgadmin4
-      environment: 
-        PGADMIN_DEFAULT_EMAIL: "test@gmail.com"
-        PGADMIN_DEFAULT_PASSWORD: "test123!"
-      ports: 
-        - "16543:80"
-      depends_on: 
-        - postgres
-      networks: 
-        - api-dev
-# volumes:
-  # db_volume192.168.0.150 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB57yp0RYVYzHcgDgvzhnvj6SiJ6P4XGQowhvCOUlKP2aBKyd4nP2Qv8zUKiY1wZwGBmIQCYbTkcZsI5J1oUOf8=
+version: '3.7'
+services:
+    apiservice:
+        container_name: dropboks
+        build:
+            context: ./UploadFilesServer
+        volumes:
+          - C:\TEST\staticFiles:/app/Resources
+        ports:
+          - "5000:5000"
+    uiservice:
+        container_name: dropboks_ui
+        build:
+            context: ./UploadFilesClient
+        ports:
+          - "4200:4200"
+        depends_on:
+          - apiservice

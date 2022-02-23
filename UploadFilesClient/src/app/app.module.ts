@@ -8,6 +8,7 @@ import { UploadComponent } from './upload/upload.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
+import { AppRoutingModule } from './app-routing.module';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
@@ -20,16 +21,16 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     HomeComponent
   ],
   imports: [
-    BrowserModule,    FormsModule,    HttpClientModule,
-    RouterModule.forRoot([
-      { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
-      { path: 'home', component: HomeComponent },
-      { path: 'upload', component: UploadComponent },
-      { path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule) },
-      { path: '404', component : NotFoundComponent},
-      { path: '', redirectTo: '/home', pathMatch: 'full' },
-      { path: '**', redirectTo: '/404', pathMatch: 'full'}
-    ])
+    BrowserModule,    FormsModule,    HttpClientModule, AppRoutingModule
+    // ,RouterModule.forRoot([
+    //   { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
+    //   { path: 'home', component: HomeComponent },
+    //   { path: 'upload', component: UploadComponent },
+    //   { path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule) },
+    //   { path: '404', component : NotFoundComponent},
+    //   { path: '', redirectTo: '/home', pathMatch: 'full' },
+    //   { path: '**', redirectTo: '/404', pathMatch: 'full'}
+    // ])
   ],
   bootstrap: [AppComponent]
 })

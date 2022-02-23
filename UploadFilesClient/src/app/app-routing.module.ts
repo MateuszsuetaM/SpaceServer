@@ -8,8 +8,8 @@ import { UploadComponent } from './upload/upload.component';
 const routes: Routes = [
   { path: 'upload', component: UploadComponent }
        ,{ path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
-//       { path: 'home', component: HomeComponent },
-//       { path: 'upload', component: UploadComponent },
+       { path: 'home', component: HomeComponent },
+       { path: 'upload', component: UploadComponent },
 //       { path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule) },
 //       { path: '404', component : NotFoundComponent},
 //       { path: '', redirectTo: '/home', pathMatch: 'full' },

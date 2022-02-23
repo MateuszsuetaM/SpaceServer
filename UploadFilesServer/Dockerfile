@@ -7,6 +7,7 @@ WORKDIR /source
 # copy csproj and restore as distinct layers
 COPY *.sln .
 COPY UploadFilesServer/*.csproj ./UploadFilesServer/
+COPY DAL/*.csproj ./DAL/
 RUN dotnet restore
 
 # copy everything else and build app

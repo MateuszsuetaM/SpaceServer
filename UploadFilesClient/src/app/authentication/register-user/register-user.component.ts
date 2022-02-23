@@ -1,6 +1,6 @@
-import { UserForRegistrationDto } from './../../_interfaces/user/userForRegistrationDto.model';
-import { AuthenticationService } from './../../shared/services/authentication.service';
-import { Component, OnInit } from '@angular/core';
+import { UserForRegistrationDto } from './../../_interfaces/user/UserForRegistrationDto.model';
+import { AuthenticationService } from './../../shared/services/Authentication.service';
+import { Component, OnInit, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-register-user',
@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterUserComponent implements OnInit {
   public registerForm: FormGroup;
-  constructor(private _authService: AuthenticationService) { }
+  constructor(@Inject(AuthenticationService)private _authService) { }
   ngOnInit(): void {
     this.registerForm = new FormGroup({
       firstName: new FormControl(''),
